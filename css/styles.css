@@ -646,12 +646,20 @@ body {
     height: 100%;
 
     background: rgba(0, 0, 0, 0.2);
+
+    transition: opacity 500ms var(--time-function),
+    transform 500ms var(--time-function);
 }
 
 .backdrop.is-hidden {
     visibility: hidden;
     opacity: 0;
     pointer-events: none;
+    transform: scale(1.2);
+
+    transition: opacity 500ms var(--time-function),
+    transform 500ms var(--time-function),
+    visibility 500ms var(--time-function);
 }
 
 .modal {
