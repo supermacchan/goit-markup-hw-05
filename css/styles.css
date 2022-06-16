@@ -8,6 +8,7 @@
     --dark-bg-contacts: rgba(255, 255, 255, .6);
     --dark-bg-color: #2F303A;
     --icon-color: #AFB1B8;
+    --time-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Глобальные стили */
@@ -117,6 +118,8 @@ body {
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.02em;
+
+    transition: color 250ms var(--time-function);
 }
 
 .nav-link:hover,
@@ -139,6 +142,7 @@ body {
 
     width: 100%;
     height: 4px;
+    border-radius: 2px;
     background-color: var(--main-active-color);
 }
 
@@ -159,6 +163,8 @@ body {
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.02em;
+
+    transition: color 250ms var(--time-function);
 }
 
 .nav-contact:hover,
@@ -210,6 +216,8 @@ body {
     font-weight: 400;
     font-size: 14px;
     line-height: 1.71;
+
+    transition: color 250ms var(--time-function);
 }
 
 .address-contact:hover,
@@ -257,6 +265,8 @@ body {
     text-decoration: none;
     background-color: rgba(255, 255, 255, 0.1);
     color: var(--dark-bg-text);
+
+    transition: background-color 250ms var(--time-function);
 }
 
 .footer-social > .item:not(:last-child) {
@@ -272,7 +282,6 @@ body {
 .footer-link:hover,
 .footer-link:focus {
     background-color: var(--main-active-color);
-    color: var(--dark-bg-text);
 }
 
 /* Main */
@@ -348,6 +357,8 @@ body {
     line-height: 1.88;
     text-align: center;
     letter-spacing: 0.06em;
+
+    transition: background-color 250ms var(--time-function);
 }
 
 .hero-button:hover,
@@ -555,6 +566,9 @@ body {
     text-decoration: none;
     color: var(--icon-color);
     background-color: var(--main-bg-color);
+
+    transition: background-color 250ms var(--time-function),
+    color 250ms var(--time-function);
 }
 
 .social-list > .item:not(:last-child) {
@@ -602,6 +616,9 @@ body {
     
     background-color: var(--main-bg-color);
     color: var(--icon-color);
+
+    transition: color 250ms var(--time-function),
+    border-color 250ms var(--time-function);
 }
 
 .partner-icon {
@@ -711,6 +728,10 @@ body {
     font-size: 16px;
     line-height: 1.62;
     text-align: center;
+
+    transition: background-color 250ms var(--time-function),
+    color 250ms var(--time-function),
+    box-shadow 250ms var(--time-function);
 }
 
 .filter-button:hover,
@@ -782,6 +803,8 @@ body {
     display: block;
     text-decoration: none;
     color: var(--main-text-color);
+
+    transition: box-shadow 250ms var(--time-function);
 }
 
 .card-link:hover,
@@ -789,26 +812,38 @@ body {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
+.card-link:hover .img-container::after,
+.card-link:focus .img-container::after {
+    transform: translateY(0);
+}
+
+.card-link:hover .overlay-text,
+.card-link:focus .overlay-text {
+    transform: translate(-50%, -50%) translateY(0);
+}
+
 .img-container {
     position: relative;
+    overflow: hidden;
 }
 
 .overlay-text {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) translateY(100%);
     z-index: 2;
 
     margin: 0;
     padding: 63px 24px;
-/* а если текста больше? эти паддинги тогда не подойдут */
     width: 100%;
     height: 100%;
 
     font-size: 18px;
     line-height: 1.56;
     color: var(--dark-bg-text);
+
+    transition: transform 250ms var(--time-function);
 }
 
 .img-container::after {
@@ -823,4 +858,8 @@ body {
     height: 100%;
 
     background: rgba(33, 150, 243, 0.9);
+
+    transform: translateY(100%);
+
+    transition: transform 250ms var(--time-function);
 }
